@@ -8,4 +8,8 @@ repository = "https://github.com/Awarty/play_sound"
 
 [dependencies]
 rodio = "0.17.1"
+anyhow = "1.0"
+cpal = "0.15.2"
+clap = "4.3.0"
+
 
