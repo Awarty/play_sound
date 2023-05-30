@@ -8,10 +8,10 @@ inherit cargo
 # how to get play_sound could be as easy as but default to a git checkout:
 # SRC_URI += "crate://crates.io/play_sound/0.1.0"
 SRC_URI += "git://git@github.com/Awarty/play_sound.git;protocol=ssh;nobranch=1;branch=main"
-SRCREV = "fc21118d0b888db7d05eebe6066a3788747a9cce"
+SRCREV = "578324aa4b6babc167c81bcb900f94305351e2da"
 S = "${WORKDIR}/git"
 CARGO_SRC_DIR = ""
-PV:append = ".AUTOINC+fc21118d0b"
+PV:append = ".AUTOINC+578324aa4b"
 
 # please note if you have entries that do not begin with crate://
 # you must change them to how that package can be fetched
