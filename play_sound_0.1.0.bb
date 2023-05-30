@@ -8,16 +8,22 @@ inherit cargo
 # how to get play_sound could be as easy as but default to a git checkout:
 # SRC_URI += "crate://crates.io/play_sound/0.1.0"
 SRC_URI += "git://git@github.com/Awarty/play_sound.git;protocol=ssh;nobranch=1;branch=main"
-SRCREV = "3de165e20a1889df5ed5dd34bc6e046ae59ad0aa"
+SRCREV = "f56d2c661d4e5b679e619804baec547ee7e932e1"
 S = "${WORKDIR}/git"
 CARGO_SRC_DIR = ""
-PV:append = ".AUTOINC+3de165e20a"
+PV:append = ".AUTOINC+f56d2c661d"
 
 # please note if you have entries that do not begin with crate://
 # you must change them to how that package can be fetched
 SRC_URI += " \
     crate://crates.io/alsa-sys/0.3.1 \
     crate://crates.io/alsa/0.7.0 \
+    crate://crates.io/anstream/0.3.2 \
+    crate://crates.io/anstyle-parse/0.2.0 \
+    crate://crates.io/anstyle-query/1.0.0 \
+    crate://crates.io/anstyle-wincon/1.0.1 \
+    crate://crates.io/anstyle/1.0.0 \
+    crate://crates.io/anyhow/1.0.71 \
     crate://crates.io/arrayvec/0.7.2 \
     crate://crates.io/autocfg/1.1.0 \
     crate://crates.io/bindgen/0.64.0 \
@@ -31,7 +37,11 @@ SRC_URI += " \
     crate://crates.io/cexpr/0.6.0 \
     crate://crates.io/cfg-if/1.0.0 \
     crate://crates.io/clang-sys/1.6.1 \
+    crate://crates.io/clap/4.3.0 \
+    crate://crates.io/clap_builder/4.3.0 \
+    crate://crates.io/clap_lex/0.5.0 \
     crate://crates.io/claxon/0.4.3 \
+    crate://crates.io/colorchoice/1.0.0 \
     crate://crates.io/combine/4.6.6 \
     crate://crates.io/core-foundation-sys/0.6.2 \
     crate://crates.io/core-foundation-sys/0.8.4 \
@@ -40,10 +50,15 @@ SRC_URI += " \
     crate://crates.io/cpal/0.15.2 \
     crate://crates.io/dasp_sample/0.11.0 \
     crate://crates.io/encoding_rs/0.8.32 \
+    crate://crates.io/errno-dragonfly/0.1.2 \
+    crate://crates.io/errno/0.3.1 \
     crate://crates.io/glob/0.3.1 \
     crate://crates.io/hashbrown/0.12.3 \
+    crate://crates.io/hermit-abi/0.3.1 \
     crate://crates.io/hound/3.5.0 \
     crate://crates.io/indexmap/1.9.3 \
+    crate://crates.io/io-lifetimes/1.0.11 \
+    crate://crates.io/is-terminal/0.4.7 \
     crate://crates.io/jni-sys/0.3.0 \
     crate://crates.io/jni/0.19.0 \
     crate://crates.io/jni/0.20.0 \
@@ -54,6 +69,7 @@ SRC_URI += " \
     crate://crates.io/lewton/0.10.2 \
     crate://crates.io/libc/0.2.144 \
     crate://crates.io/libloading/0.7.4 \
+    crate://crates.io/linux-raw-sys/0.3.8 \
     crate://crates.io/lock_api/0.4.9 \
     crate://crates.io/log/0.4.17 \
     crate://crates.io/mach2/0.4.1 \
@@ -85,10 +101,12 @@ SRC_URI += " \
     crate://crates.io/regex/1.8.2 \
     crate://crates.io/rodio/0.17.1 \
     crate://crates.io/rustc-hash/1.1.0 \
+    crate://crates.io/rustix/0.37.19 \
     crate://crates.io/same-file/1.0.6 \
     crate://crates.io/scopeguard/1.1.0 \
     crate://crates.io/shlex/1.1.0 \
     crate://crates.io/smallvec/1.10.0 \
+    crate://crates.io/strsim/0.10.0 \
     crate://crates.io/symphonia-bundle-mp3/0.5.2 \
     crate://crates.io/symphonia-core/0.5.2 \
     crate://crates.io/symphonia-metadata/0.5.2 \
@@ -102,6 +120,7 @@ SRC_URI += " \
     crate://crates.io/toml_datetime/0.6.2 \
     crate://crates.io/toml_edit/0.19.10 \
     crate://crates.io/unicode-ident/1.0.8 \
+    crate://crates.io/utf8parse/0.2.1 \
     crate://crates.io/walkdir/2.3.3 \
     crate://crates.io/wasm-bindgen-backend/0.2.86 \
     crate://crates.io/wasm-bindgen-futures/0.4.36 \
@@ -115,15 +134,24 @@ SRC_URI += " \
     crate://crates.io/winapi-x86_64-pc-windows-gnu/0.4.0 \
     crate://crates.io/winapi/0.3.9 \
     crate://crates.io/windows-sys/0.45.0 \
+    crate://crates.io/windows-sys/0.48.0 \
     crate://crates.io/windows-targets/0.42.2 \
+    crate://crates.io/windows-targets/0.48.0 \
     crate://crates.io/windows/0.46.0 \
     crate://crates.io/windows_aarch64_gnullvm/0.42.2 \
+    crate://crates.io/windows_aarch64_gnullvm/0.48.0 \
     crate://crates.io/windows_aarch64_msvc/0.42.2 \
+    crate://crates.io/windows_aarch64_msvc/0.48.0 \
     crate://crates.io/windows_i686_gnu/0.42.2 \
+    crate://crates.io/windows_i686_gnu/0.48.0 \
     crate://crates.io/windows_i686_msvc/0.42.2 \
+    crate://crates.io/windows_i686_msvc/0.48.0 \
     crate://crates.io/windows_x86_64_gnu/0.42.2 \
+    crate://crates.io/windows_x86_64_gnu/0.48.0 \
     crate://crates.io/windows_x86_64_gnullvm/0.42.2 \
+    crate://crates.io/windows_x86_64_gnullvm/0.48.0 \
     crate://crates.io/windows_x86_64_msvc/0.42.2 \
+    crate://crates.io/windows_x86_64_msvc/0.48.0 \
     crate://crates.io/winnow/0.4.6 \
 "
 
